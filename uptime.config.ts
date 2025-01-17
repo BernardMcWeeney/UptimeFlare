@@ -1,7 +1,7 @@
 const pageConfig = {
   title: "Website Monitoring Dashboard",
   links: [
-    { link: 'mailto:your-email@example.com', label: 'Contact', highlight: true },
+    { link: 'mailto:OFFICE@GREENBERRY.IE', label: 'Contact', highlight: true },
   ],
 }
 
