@@ -1,97 +1,112 @@
 const pageConfig = {
-  // Title for your status page
-  title: "Greenberry's Status Page",
-  // Links shown at the header of your status page, could set `highlight` to `true`
+  title: "Website Monitoring Dashboard",
   links: [
-    { link: 'https://greenberry.ie/', label: 'Greenberry' },
-    { link: 'mailto:office@greenberry.ie', label: 'Email Greenberry', highlight: true },
+    { link: 'mailto:your-email@example.com', label: 'Contact', highlight: true },
   ],
 }
 
 const workerConfig = {
-  // Write KV at most every 3 minutes unless the status changed
   kvWriteCooldownMinutes: 3,
-  // Enable HTTP Basic auth for status page & API by uncommenting the line below, format `<USERNAME>:<PASSWORD>`
-  // passwordProtection: 'username:password',
-  // Define all your monitors here
   monitors: [
-    // Example HTTP Monitor
     {
-      // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'greenberry_monitor',
-      // `name` is used at status page and callback message
-      name: 'Greenberry Monitor',
-      // `method` should be a valid HTTP Method
+      id: 'greenberry',
+      name: 'Greenberry',
       method: 'GET',
-      // `target` is a valid URL
       target: 'https://greenberry.ie',
-      // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
-      tooltip: 'This is a tooltip for this monitor',
-      // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
-      statusPageLink: 'https://greenberry.ie',
-      // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
-      expectedCodes: [200],
-      // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
       timeout: 10000,
-
-      // [OPTIONAL] if specified, the check will run in your specified region,
-      // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Geo-specific-checks-setup before setting this value
-      //checkLocationWorkerRoute: 'https://xxx.example.com',
     },
-    // Example TCP Monitor
     {
-      id: 'test_tcp_monitor',
-      name: 'Example TCP Monitor',
-      // `method` should be `TCP_PING` for tcp monitors
-      method: 'TCP_PING',
-      // `target` should be `host:port` for tcp monitors
-      target: '1.2.3.4:22',
-      tooltip: 'My production server SSH',
-      statusPageLink: 'https://example.com',
-      timeout: 5000,
+      id: 'mounthanoverns',
+      name: 'Mount Hanoverns',
+      method: 'GET',
+      target: 'https://mounthanoverns.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'duleek_community',
+      name: 'Duleek Community Facility',
+      method: 'GET',
+      target: 'https://duleekcommunityfacility.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'moynalvey',
+      name: 'Moynalvey NS',
+      method: 'GET',
+      target: 'https://moynalveyns.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'cudden',
+      name: 'Cudden Pre Construction',
+      method: 'GET',
+      target: 'https://cuddenpreconstruction.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'bellews_golf',
+      name: 'Belllewstown Golf Club',
+      method: 'GET',
+      target: 'http://bellewstowngolfclub.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'ballivor',
+      name: 'Ballivor Kildalkey',
+      method: 'GET',
+      target: 'https://ballivorkildalkey.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'oldcastle',
+      name: 'Oldcastle Moylagh Parish',
+      method: 'GET',
+      target: 'https://oldcastlemoylaghparish.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'donore',
+      name: 'Donore Rossnare Parish',
+      method: 'GET',
+      target: 'https://donorerossnareeparish.com',
+      timeout: 10000,
+    },
+    {
+      id: 'duleek_bellews',
+      name: 'Duleek Bellewstown Parish',
+      method: 'GET',
+      target: 'https://duleekbellewstownparish.com',
+      timeout: 10000,
+    },
+    {
+      id: 'gerwood',
+      name: 'Ger Woodturning',
+      method: 'GET',
+      target: 'https://gerwoodturning.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'vancouver_gaa',
+      name: 'Vancouver GAA',
+      method: 'GET',
+      target: 'https://vancouvergaa.com',
+      timeout: 10000,
+    },
+    {
+      id: 'churchify',
+      name: 'Churchify',
+      method: 'GET',
+      target: 'https://churchify.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'st_marys',
+      name: "St Mary's Drogheda",
+      method: 'GET',
+      target: 'https://stmarysdrogheda.ie',
+      timeout: 10000,
     },
   ],
-  notification: {
-    // [Optional] apprise API server URL
-    // if not specified, no notification will be sent
-    appriseApiServer: "https://apprise.example.com/notify",
-    // [Optional] recipient URL for apprise, refer to https://github.com/caronc/apprise
-    // if not specified, no notification will be sent
-    recipientUrl: "tgram://bottoken/ChatID",
-    // [Optional] timezone used in notification messages, default to "Etc/GMT"
-    timeZone: "Asia/Shanghai",
-    // [Optional] grace period in minutes before sending a notification
-    // notification will be sent only if the monitor is down for N continuous checks after the initial failure
-    // if not specified, notification will be sent immediately
-    gracePeriod: 5,
-  },
-  callbacks: {
-    onStatusChange: async (
-      env: any,
-      monitor: any,
-      isUp: boolean,
-      timeIncidentStart: number,
-      timeNow: number,
-      reason: string
-    ) => {
-      // This callback will be called when there's a status change for any monitor
-      // Write any Typescript code here
-
-      // This will not follow the grace period settings and will be called immediately when the status changes
-      // You need to handle the grace period manually if you want to implement it
-    },
-    onIncident: async (
-      env: any,
-      monitor: any,
-      timeIncidentStart: number,
-      timeNow: number,
-      reason: string
-    ) => {
-      // This callback will be called EVERY 1 MINTUE if there's an on-going incident for any monitor
-      // Write any Typescript code here
-    },
-  },
 }
 
-// Don't forget this, otherwise compilation fails.
 export { pageConfig, workerConfig }
