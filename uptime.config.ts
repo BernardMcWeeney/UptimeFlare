@@ -1,7 +1,7 @@
 const pageConfig = {
   title: "Website Monitoring Dashboard",
   links: [
-    { link: 'https://greenberry.ie, label: 'Greenberry Website' },
+    { link: 'https://greenberry.ie', label: 'Greenberry Website' },
     { link: 'mailto:office@greenberry.ie', label: 'Contact Support', highlight: true },
   ],
 }
