@@ -1,7 +1,8 @@
 const pageConfig = {
   title: "Website Monitoring Dashboard",
   links: [
-    { link: 'mailto:office@greenberry.ie', label: 'Contact', highlight: true },
+    { link: 'https://greenberry.ie, label: 'Greenberry Website' },
+    { link: 'mailto:office@greenberry.ie', label: 'Contact Support', highlight: true },
   ],
 }
 
@@ -104,6 +105,13 @@ const workerConfig = {
       name: "St Mary's Drogheda",
       method: 'GET',
       target: 'https://stmarysdrogheda.ie',
+      timeout: 10000,
+    },
+    {
+      id: 'holy_family',
+      name: "Holy Family Drogheda",
+      method: 'GET',
+      target: 'https://holyfamilydrogheda.ie',
       timeout: 10000,
     },
   ],
