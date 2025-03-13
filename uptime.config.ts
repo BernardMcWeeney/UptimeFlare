@@ -114,6 +114,20 @@ const workerConfig = {
       target: 'https://holyfamilydrogheda.ie',
       timeout: 10000,
     },
+    {
+      id: 'issc_vancouver_gaa',
+      name: "ISSC Vancouver GAA",
+      method: 'GET',
+      target: 'https://isscvancouver.com/',
+      timeout: 10000,
+    },
+    {
+      id: 'le_cheile_vancouver_gaa',
+      name: "Vancouver Le Cheile",
+      method: 'GET',
+      target: 'https://vancouverlecheile.com/',
+      timeout: 10000,
+    },
   ],
 }
 
